@@ -1,6 +1,7 @@
 # US President election Prediction 
 
-We got past Presidential ELction for all 50 States from 1976 to 2012.Last 10 Elections can give us the insights of the trend.The Data can be collected from the US Political Data.
+We got past Presidential Election for all 50 States from 1976 to 2012.Last 10 Elections can give us the insights of the trend.The Data can be collected from the US Political Data.
+
 
 Create Table dem(poll STRING, from_date STRING, to_date STRING, Moe STRING, Clinton
 
