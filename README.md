@@ -92,3 +92,28 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 STORED AS TEXTFILE LOCATION
 
 'wasb://clusterpresident@cis528president.blob.core.windows.net/Past_Data/';
+
+
+/*CREATING A ETHNICITY AVERAGE TABLE*/
+
+Drop Table If exists Ethfavavg;
+Create Table Ethfavavg(Clinton STRING, Sanders STRING, Carson STRING, Trump STRING, Rubio STRING, Cruz STRING);
+INSERT OVERWRITE TABLE Ethfavavg
+Select AVG(Clinton) as Clinton, AVG(Sanders) as Sanders , AVG(Carson) as Carson , AVG(Trump) as Trump , AVG(Rubio) as Rubio , AVG(Cruz) as Cruz from Ethnicity_fav;
+
+/*CREATING A MEDIAN AGE VOTER SUM*/
+
+Drop Table If exists MedianAgeVotersSum;
+Create Table MedianAgeVotersSum(Clinton STRING, Sanders STRING, Carson STRING, Trump STRING, Rubio STRING, Cruz STRING, Bush STRING, Christie STRING, Fiorina STRING, Huckabee STRING, Kasich STRING);
+INSERT OVERWRITE TABLE MedianAgeVotersSum
+Select SUM(Clinton) As Clinton, SUM(Sanders) As Sanders, SUM(Carson) AS Carson, SUM(Trump) AS Trump, SUM(Rubio) AS Rubio, SUM(Cruz) AS Cruz, SUM(Bush) as Bush, SUM(Christie) as Christie, SUM(Fiorina) as Fiorina, SUM(Huckabee) as Huckabee, SUM(Kasich) as Kasich  from Age_Fav
+where age = 35 OR age =50;
+
+/* CREATING A SPREAD TABLE */
+
+Create Table Spread(Moe STRING, Clinton STRING, Sanders STRING, OMalley STRING);
+INSERT OVERWRITE TABLE Spread
+SELECT SUM(Moe) AS Moe, SUM(Clinton) AS Clinton, SUM(Sanders) AS Sanders, SUM(OMalley) AS OMalley from PollData_Democratic;
+
+
+
