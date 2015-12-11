@@ -1,5 +1,6 @@
 # US President election Prediction 
-Step 1) We got past Presidential ELction for all 50 States from 1976 to 2012.Last 10 Elections can give us the insights of the trend.The Data can be collected from the US Political Data.
+
+We got past Presidential ELction for all 50 States from 1976 to 2012.Last 10 Elections can give us the insights of the trend.The Data can be collected from the US Political Data.
 
 Create Table dem(poll STRING, from_date STRING, to_date STRING, Moe STRING, Clinton
 
@@ -109,7 +110,7 @@ INSERT OVERWRITE TABLE MedianAgeVotersSum
 Select SUM(Clinton) As Clinton, SUM(Sanders) As Sanders, SUM(Carson) AS Carson, SUM(Trump) AS Trump, SUM(Rubio) AS Rubio, SUM(Cruz) AS Cruz, SUM(Bush) as Bush, SUM(Christie) as Christie, SUM(Fiorina) as Fiorina, SUM(Huckabee) as Huckabee, SUM(Kasich) as Kasich  from Age_Fav
 where age = 35 OR age =50;
 
-/* CREATING A SPREAD TABLE */
+/*CREATING A SPREAD TABLE*/
 
 Create Table Spread(Moe STRING, Clinton STRING, Sanders STRING, OMalley STRING);
 INSERT OVERWRITE TABLE Spread
